@@ -1,0 +1,172 @@
+@import 'tailwindcss';
+
+/* RPJ Exports — palette taken from the product catalogue (navy, gold, cream). */
+:root {
+  --ink: #0a1a2f;
+  --navy: #17335a;
+  --navy-soft: #2c4b6a;
+  --gold: #c8a15a;
+  --gold-bright: #e3c27f;
+  --gold-deep: #9c7632;
+  --cream: #f7f3ec;
+  --sand: #ece4d6;
+  --paper: #fcfaf6;
+  --stone: #5d6878;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --primary: var(--navy);
+  --primary-foreground: #ffffff;
+  --secondary: var(--gold);
+  --secondary-foreground: var(--ink);
+  --accent: var(--sand);
+  --accent-foreground: var(--ink);
+  --muted: var(--cream);
+  --muted-foreground: var(--stone);
+  --popover: #ffffff;
+  --popover-foreground: var(--ink);
+  --destructive: #c2410c;
+  --destructive-foreground: #ffffff;
+  --border: #e4dccd;
+  --input: #d9d0bf;
+  --ring: var(--gold);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-navy: var(--navy);
+  --color-navy-soft: var(--navy-soft);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-deep: var(--gold-deep);
+  --color-cream: var(--cream);
+  --color-sand: var(--sand);
+  --color-paper: var(--paper);
+  --color-stone-ink: var(--stone);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-text-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-mono: var(--font-mono-face), ui-monospace, monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Layout helpers */
+.shell {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+@media (min-width: 768px) {
+  .shell {
+    padding-inline: 40px;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Film grain for dark sections (no blend mode — it would recomposite every frame) */
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* anime.js split text: hidden until split, room for descenders inside clip wrappers */
+[data-split] {
+  visibility: hidden;
+}
+[data-split].is-split {
+  visibility: visible;
+}
+[data-split] span:has(> [data-word]) {
+  display: inline-block;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbbd9f;
+  border-radius: 10px;
+  border: 2px solid var(--cream);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-split] {
+    visibility: visible;
+  }
+}
