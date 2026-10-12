@@ -173,7 +173,7 @@ export function Hero() {
         </motion.div>
 
         {/* Facts rail */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={introDone ? { opacity: 1 } : {}}
           transition={{ duration: 1.2, delay: 1.4 }}
@@ -192,7 +192,7 @@ export function Hero() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
