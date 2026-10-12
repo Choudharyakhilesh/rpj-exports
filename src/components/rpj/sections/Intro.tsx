@@ -89,7 +89,7 @@ export function Intro() {
       <div className="shell mt-20 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-3">
         {TILES.map((t, i) => (
           <Reveal key={t.label} delay={i * 0.08} className="bg-paper p-8 md:p-10">
-            <p className="font-display text-6xl text-navy md:text-7xl">
+            <p className="font-display text-5xl text-navy md:text-7xl">
               <CountUp value={t.value} suffix={t.suffix} />
             </p>
             <p className="mt-4 font-semibold text-ink">{t.label}</p>

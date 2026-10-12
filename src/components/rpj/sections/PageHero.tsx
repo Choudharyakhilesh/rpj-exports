@@ -19,7 +19,7 @@ export function PageHero({
   const introDone = useUiStore((s) => s.introDone);
 
   return (
-    <section className="grain relative min-h-[700px] overflow-hidden bg-ink pb-10 pt-40 text-cream md:min-h-[500px] md:pb-10 md:pt-28">
+    <section className="grain relative min-h-[650px] overflow-hidden bg-ink pb-10 pt-40 text-cream md:min-h-[500px] md:pb-10 md:pt-28">
       {/* Background */}
       <div
         aria-hidden
@@ -31,7 +31,8 @@ export function PageHero({
         className="
           pointer-events-none
           absolute
-          right-[-25%]
+          md:right-[-25%]
+          right-[-2%]
           top-[15%]
           z-[1]
           h-[70%]
