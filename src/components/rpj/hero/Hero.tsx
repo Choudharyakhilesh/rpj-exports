@@ -17,12 +17,12 @@ const HeroScene = dynamic(() => import('./HeroScene'), { ssr: false });
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-const FACTS = [
-  { value: '07', label: 'Guar products' },
-  { value: '100–300', label: 'Mesh range' },
-  { value: '3,000–6,500', label: 'CPS viscosity' },
-  { value: '25 / 50 kg', label: 'Standard packing' },
-];
+// const FACTS = [
+//   { value: '07', label: 'Guar products' },
+//   { value: '100–300', label: 'Mesh range' },
+//   { value: '3,000–6,500', label: 'CPS viscosity' },
+//   { value: '25 / 50 kg', label: 'Standard packing' },
+// ];
 
 export function Hero() {
   const section = useRef<HTMLElement>(null);
