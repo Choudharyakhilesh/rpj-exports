@@ -18,11 +18,13 @@ const COMPANY_LINKS = [
 
 const SOCIAL_LINKS = [
   {
+    key: 'instagram_url',
     label: 'Instagram',
-    href: 'https://www.instagram.com/rpj.exports?stkn=MXI1aDE2a2l4eXM2Mg==',
+    href: 'https://www.instagram.com/rpj.exports/',
     Icon: Instagram,
   },
   {
+    key: 'linkedln_url',
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/company/rpj-exports/',
     Icon: Linkedin,
@@ -79,12 +81,15 @@ export function SiteFooter() {
               animal-feed applications.
             </p>
             <p className="eyebrow mt-6 text-gold-bright">{COMPANY.tagline}</p>
-            {socials.length > 0 && (
-              <div className="mt-6 flex gap-3">
-                {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+
+            <div className="mt-6 flex gap-3">
+              {SOCIAL_LINKS.map(({ key, label, href, Icon }) => {
+                const socialUrl = socials.find((social) => social.key === key)?.url;
+
+                return (
                   <a
                     key={label}
-                    href={href}
+                    href={socialUrl || href}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
@@ -92,9 +97,9 @@ export function SiteFooter() {
                   >
                     <Icon className="h-4 w-4" strokeWidth={1.5} />
                   </a>
-                ))}
-              </div>
-            )}
+                );
+              })}
+            </div>
           </div>
 
           <FooterColumn title="Products">
