@@ -1,21 +1,6 @@
 import type { Metadata, Viewport } from 'next';
-import { JetBrains_Mono, Manrope, Playfair_Display } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
-
-const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope', display: 'swap' });
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-playfair',
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
-});
-const mono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono-face',
-  weight: ['400', '500'],
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: {
@@ -24,7 +9,10 @@ export const metadata: Metadata = {
   },
   description:
     'RPJ Exports is a Jaipur, Rajasthan-based export and sourcing company supplying guar seeds, guar splits, food and industrial grade guar gum, guar dust, churi and korma to global buyers.',
-  icons: { icon: '/favicon.ico', apple: '/brand/rpj-mark.png' },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/brand/rpj-mark.png',
+  },
 };
 
 export const viewport: Viewport = {
@@ -33,11 +21,19 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${manrope.variable} ${playfair.variable} ${mono.variable}`}>
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+
       <body>
         {children}
 
-        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-RVH87K29JD"
           strategy="afterInteractive"
