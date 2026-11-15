@@ -187,7 +187,7 @@ export function EnquiryForm({
           <TextField
             name="quantity"
             control={control}
-            label="Quantity & destination port"
+            label="Quantity"
             labelBgColor="bg-white"
             startIcon={<Package className="h-4 w-4 text-stone-ink" />}
           />
