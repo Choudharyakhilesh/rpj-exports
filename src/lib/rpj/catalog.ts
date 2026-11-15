@@ -174,28 +174,30 @@ export const VISCOSITY_RANGES = [
   { id: 'industrial-grade-guar-gum', label: 'Industrial Grade', min: 3000, max: 6000 },
 ];
 
+
 export const PROCESS = [
   {
     step: '01',
-    title: 'Understand',
-    body: 'We understand your product requirements and specifications.',
+    title: 'Raw Material Selection',
+    body: 'Carefully selected guar seeds to ensure consistent raw material quality.',
   },
   {
     step: '02',
-    title: 'Source',
-    body: 'We coordinate sourcing through suitable Indian manufacturing and processing partners.',
+    title: 'In-House Manufacturing',
+    body: 'Manufacturing Guar Gum Powder with a focus on quality, consistency and specifications.',
   },
   {
     step: '03',
-    title: 'Verify',
-    body: 'We coordinate quality parameters and relevant product documentation per specification.',
+    title: 'Quality Inspection',
+    body: 'Quality checks to ensure every batch meets agreed technical specifications.',
   },
   {
     step: '04',
-    title: 'Supply',
-    body: 'We coordinate export-ready supply according to the agreed requirements.',
+    title: 'Packaging & Dispatch',
+    body: 'Secure packaging and reliable dispatch for domestic and international customers.',
   },
 ];
+
 
 export const WHY_US = [
   {
@@ -241,19 +243,19 @@ export const APPLICATIONS: {
       industry: 'Oil & Gas',
       uses: ['Drilling fluids', 'Fracturing', 'Viscosity control'],
       product: 'Industrial Grade Guar Gum',
-      image: null,
+      image: '/media/oil.jpeg',
     },
     {
       industry: 'Textile & Paper',
       uses: ['Printing thickener', 'Sizing', 'Paper strength'],
       product: 'Industrial Grade Guar Gum',
-      image: null,
+      image: '/media/paper-and-gas.jpeg',
     },
     {
       industry: 'Mining',
       uses: ['Flotation', 'Settling aid'],
       product: 'Industrial Grade Guar Gum',
-      image: null,
+      image: '/media/mining.jpeg',
     },
     {
       industry: 'Animal Nutrition',

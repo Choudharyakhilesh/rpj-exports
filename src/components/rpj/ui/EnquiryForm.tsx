@@ -32,15 +32,10 @@ const EMPTY: EnquiryData = {
 };
 
 /** The backend only stores the base contact fields, so product + quantity go into the message. */
-function composeMessage({ products, quantity, message }: EnquiryData) {
-  const names = PRODUCTS.filter((p) => products.includes(p.id)).map((p) => p.name);
-  return [
-    names.length ? `Products of interest: ${names.join(', ')}` : '',
-    quantity ? `Quantity / destination: ${quantity}` : '',
-    message ?? '',
-  ]
-    .filter(Boolean)
-    .join('\n\n');
+function getProductNames(products: string[]) {
+  return PRODUCTS.filter((p) => products.includes(p.id))
+    .map((p) => p.name)
+    .join(', ');
 }
 
 const NO_PRODUCTS: string[] = [];
@@ -68,13 +63,16 @@ export function EnquiryForm({
 
   const onSubmit: SubmitHandler<EnquiryData> = async (data) => {
     const [countryCode, phoneNumber] = data.mobile.split('-');
+
     const res = await apiCreateInquiry({
       first_name: data.first_name,
       last_name: data.last_name,
       email: data.email,
-      mobile: phoneNumber,
       country_code: countryCode,
-      message: composeMessage(data),
+      mobile: phoneNumber,
+      products_of_interest: getProductNames(data.products),
+      quantity_destination_port: data.quantity ?? '',
+      specification: data.message ?? '',
     });
 
     if (res?.status === 'SUCCESS') {
